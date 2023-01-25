@@ -4,7 +4,7 @@ import { AppContainer } from './src/components/AppContainer';
 export default function App() {
 
   return (
-    <AppContainer>
+    <AppContainer backgroundColor='red'>
       <Text>Typescript App is live</Text>
     </AppContainer>
   );
