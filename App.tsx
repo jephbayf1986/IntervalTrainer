@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
-import { AppContainer } from './src/components/AppContainer';
+import { AppContainer } from './src/components/app-container/app-container.component';
 
 export default function App() {
 

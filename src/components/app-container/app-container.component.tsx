@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, SafeAreaView, Platform, StatusBar } from "react-native";
 
-import { HasChildren } from "../types/HasChildren";
+import { HasChildren } from "../../types/HasChildren";
 
 export interface IAppContainerProps extends HasChildren {
   backgroundColor?: string;
