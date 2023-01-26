@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, Platform, StatusBar } from "react-native";
+import { StatusBar } from 'expo-status-bar'
 
 import { HasChildren } from "../../types/HasChildren";
+import { StyledSafeAreaView } from "./app-container.styled";
 
 export interface IAppContainerProps extends HasChildren {
   backgroundColor?: string;
@@ -12,18 +13,11 @@ export const AppContainer: React.FC<IAppContainerProps> = ({
   children,
 }) => {
   return (
-    <SafeAreaView style={createStyles(backgroundColor).container}>
-      {children}
-    </SafeAreaView>
+    <>
+      <StyledSafeAreaView backgroundColor={backgroundColor}>
+        {children}
+      </StyledSafeAreaView>
+      <StatusBar />
+    </>
   );
-};
-
-const createStyles = (backgroundColor?: string) => {
-  return StyleSheet.create({
-    container: {
-      flex: 1,
-      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-      backgroundColor: backgroundColor ?? "#fff",
-    },
-  });
 };
