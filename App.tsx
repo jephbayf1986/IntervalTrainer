@@ -1,3 +1,4 @@
+import React from 'react';
 import { Text } from 'react-native';
 import { AppContainer } from './src/components/app-container/app-container.component';
 
