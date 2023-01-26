@@ -16,7 +16,7 @@ const getPaddingTop = (props: StyledSafeAreaViewProps): number => {
 };
 
 export const StyledSafeAreaView = styled.SafeAreaView<StyledSafeAreaViewProps>`
-  flex: 1,
-  padding-top: ${getPaddingTop},
-  background-color: ${(props) => props.backgroundColor ?? "white"}
+  flex: 1;
+  padding-top: ${getPaddingTop}px;
+  background-color: ${(props) => props.backgroundColor ?? "white"};
 `;
