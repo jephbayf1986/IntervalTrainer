@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { HasChildren } from '../../types/HasChildren';
+import { HasChildren } from '../../types/props-bases/HasChildren';
 import { Workout } from '../../types/Workout';
 
 export type WorkoutContextType = {

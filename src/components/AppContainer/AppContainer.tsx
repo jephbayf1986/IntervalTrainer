@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar'
 
-import { HasChildren } from "../../types/HasChildren";
+import { HasChildren } from "../../types/props-bases/HasChildren";
 import { StyledSafeAreaView } from "./Styles/app-container.styled";
 
 export interface IAppContainerProps extends HasChildren {
