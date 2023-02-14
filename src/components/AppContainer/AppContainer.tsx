@@ -2,13 +2,13 @@ import React from "react";
 import { StatusBar } from 'expo-status-bar'
 
 import { HasChildren } from "../../types/HasChildren";
-import { StyledSafeAreaView } from "./app-container.styled";
+import { StyledSafeAreaView } from "./Styles/app-container.styled";
 
 export interface IAppContainerProps extends HasChildren {
   backgroundColor?: string;
 }
 
-export const AppContainer: React.FC<IAppContainerProps> = ({
+const AppContainer: React.FC<IAppContainerProps> = ({
   backgroundColor,
   children,
 }) => {
@@ -21,3 +21,5 @@ export const AppContainer: React.FC<IAppContainerProps> = ({
     </>
   );
 };
+
+export default AppContainer;

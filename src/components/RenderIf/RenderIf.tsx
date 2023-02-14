@@ -6,10 +6,12 @@ export interface IRenderIfProps extends HasChildren {
   elseDisplay?: React.ReactNode;
 }
 
-export const RenderIf: React.FC<IRenderIfProps> = ({
+const RenderIf: React.FC<IRenderIfProps> = ({
   condition,
   elseDisplay,
   children,
 }) => {
   return <>{condition ? children : elseDisplay}</>;
 };
+
+export default RenderIf;

@@ -1,7 +1,7 @@
 import { Platform, StatusBar, ViewProps } from "react-native";
 import styled from "styled-components/native";
 
-import { GetIosPlatformVersion } from "../../utils/platform.utils";
+import { GetIosPlatformVersion } from "../../../utils/platform.utils";
 
 export interface StyledSafeAreaViewProps extends ViewProps {
   backgroundColor?: string;
