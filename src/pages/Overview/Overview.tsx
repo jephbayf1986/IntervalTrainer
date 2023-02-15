@@ -1,16 +1,20 @@
 import React from "react";
-import { Button, Text } from "react-native";
 
 import AppContainer from "../../components/AppContainer/AppContainer";
-import { NavigationPage } from "../../types/props-bases/NavigationPage";
+import { Seperator } from "../../components/Seperator/Seperator";
+import { colors } from "../../theme/colors";
+import { Dashboard } from "./components/Dashboard/Dashboard";
+import WorkoutList from "./components/WorkoutList/WorkoutList";
+import { StyledOverviewContainer } from "./styles/overview-container.styled";
 
-const Overview: React.FC<NavigationPage> = ({ navigation }) => {
+const Overview: React.FC = () => {
   return (
-    <AppContainer backgroundColor="darkblue">
-      <Text>App Overview Page</Text>
-      <Button title="Run Workout" onPress={() => navigation.navigate('RunWorkout')} />
-      <Button title="Create Workout" onPress={() => navigation.navigate('CreateWorkout')}  />
-      <Button title="Update Workout" onPress={() => navigation.navigate('UpdateWorkout')}  />
+    <AppContainer backgroundColor={colors.darkBlue}>
+      <StyledOverviewContainer>
+        <Dashboard />
+        <Seperator />
+        <WorkoutList />
+      </StyledOverviewContainer>
     </AppContainer>
   );
 };
