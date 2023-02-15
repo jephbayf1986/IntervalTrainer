@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Text } from "react-native";
 import { AppNavigationTreeParamList } from "../../../../navigation/app-navigation-tree";
 
-import { colors } from "../../../../theme/colors";
+import colors from "../../../../theme/colors";
 import { StyledWorkoutListContainer } from "./styles/workout-list-container.styled";
 
 export type IWorkoutListProps = {};

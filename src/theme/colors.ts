@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
     darkBlue: '#00054B',
     textLight: '#FAFAFA',
     neonPink: '#FF0092',
@@ -8,3 +8,5 @@ export const colors = {
     neonGreen: '#00FF3B',
     paleGreen: '#00FF77'
 }
+
+export default colors;

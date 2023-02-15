@@ -2,7 +2,7 @@ import React from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon, FontAwesomeIconStyle } from '@fortawesome/react-native-fontawesome'
 
-import { colors } from "../../../theme/colors";
+import colors from "../../../theme/colors";
 import RenderIf from "../../LayoutElements/RenderIf/RenderIf";
 import { StyledInputBoxContainer, StyledInputBoxLabel, StyledTextInput, StyledTextInputContainer } from "./styles/input-box.styled";
 import { Spacer } from "../../LayoutElements/Spacer/Spacer";
@@ -21,7 +21,7 @@ export type InputBoxProps = {
   onValueChange: (newValue: string) => void;
 };
 
-export const InputBox: React.FC<InputBoxProps> = ({
+const InputBox: React.FC<InputBoxProps> = ({
   value,
   label,
   placeholderText,
@@ -53,3 +53,5 @@ export const InputBox: React.FC<InputBoxProps> = ({
     </StyledInputBoxContainer>
   );
 };
+
+export default InputBox;

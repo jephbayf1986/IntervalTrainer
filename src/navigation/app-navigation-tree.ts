@@ -1,4 +1,4 @@
-import { colors } from './../theme/colors';
+import colors from './../theme/colors';
 import CreateWorkout from "../pages/CreateWorkout/CreateWorkout";
 import Overview from "../pages/Overview/Overview";
 import RunWorkout from "../pages/RunWorkout/RunWorkout";
@@ -8,11 +8,11 @@ import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 
 const sharedPageOptions: NativeStackNavigationOptions = {
   headerTransparent: true,
-  headerTitleAlign: "center",
+  headerTitleAlign: 'center',
   headerTitleStyle: { color: colors.textLight },
   headerTintColor: colors.textLight,
-  animation: "slide_from_right",
-  statusBarStyle: "light",
+  animation: 'slide_from_right',
+  statusBarStyle: 'light',
   statusBarTranslucent: true
 };
 
@@ -25,19 +25,19 @@ export type AppNavigationTreeParamList = {
 
 const appNavigationTree: INavigationMeta<AppNavigationTreeParamList>[] = [
   {
-    name: "Home",
+    name: 'Home',
     component: Overview,
-    options: { ...sharedPageOptions, title: "Your Overview", headerShown: false },
+    options: { ...sharedPageOptions, title: 'Your Overview', headerShown: false },
   },
   {
-    name: "CreateWorkout", 
+    name: 'CreateWorkout', 
     component: CreateWorkout, 
-    options: { ...sharedPageOptions, title: "Create a new workout" }
+    options: { ...sharedPageOptions, title: 'Create a new workout' }
   },
   {
-    name: "UpdateWorkout", component: UpdateWorkout, options: sharedPageOptions
+    name: 'UpdateWorkout', component: UpdateWorkout, options: sharedPageOptions
   },
-  { name: "RunWorkout", component: RunWorkout, options: sharedPageOptions },
+  { name: 'RunWorkout', component: RunWorkout, options: sharedPageOptions },
 ];
 
 export default appNavigationTree;

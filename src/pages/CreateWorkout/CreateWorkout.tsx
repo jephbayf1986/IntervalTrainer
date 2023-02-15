@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 
 import AppContainerWithHeader from "../../components/AppContainer/AppContainerWithHeader";
-import { FormContainer } from "../../components/FormElements/FormContainer/FormContainer";
-import { InputBox } from "../../components/FormElements/InputBox/InputBox";
-import { colors } from "../../theme/colors";
+import TickButton from "../../components/FormElements/TickButton/TickButton";
+import WorkoutDesigner from "../../components/WorkoutDesigner/WorkoutDesigner";
+import colors from "../../theme/colors";
+import Workout from "../../types/Workout";
+import { defaultWorkout } from "../../utils/workout-defaults";
 
 const CreateWorkout: React.FC = () => {
 
-  const [workoutName, setWorkoutName] = useState<string>('');
+  const [canComplete, setCanComplete] = useState<boolean>(false);
+
+  const [workout, setWorkout] = useState<Workout>(defaultWorkout);
+
+  const onUpdateWorkout = (workout: Workout, isValid: boolean) => {
+    setCanComplete(isValid);
+    setWorkout(workout);
+  }
+
+  const createWorkout = () => {
+    
+  }
 
   return (
     <AppContainerWithHeader backgroundColor={colors.darkBlue}>
-      <FormContainer>
-        <InputBox 
-          label="Workout Name" 
-          placeholderText="Enter Workout Name"
-          value={workoutName}
-          onValueChange={setWorkoutName} 
-        />
-      </FormContainer>
+      <TickButton disabled={!canComplete} onClick={createWorkout} />
+      <WorkoutDesigner workout={workout} onUpdateWorkout={onUpdateWorkout}  />
     </AppContainerWithHeader>
   );
 };

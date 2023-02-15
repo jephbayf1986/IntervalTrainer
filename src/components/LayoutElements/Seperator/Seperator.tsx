@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { colors } from '../../../theme/colors';
+import colors from '../../../theme/colors';
 
 const StyledSeperator = styled.View`
   background-color: ${colors.textLight};
@@ -8,4 +8,6 @@ const StyledSeperator = styled.View`
   margin: 10px 20px;
 `;
 
-export const Seperator: React.FC = () => <StyledSeperator />
+const Seperator: React.FC = () => <StyledSeperator />
+
+export default Seperator;
