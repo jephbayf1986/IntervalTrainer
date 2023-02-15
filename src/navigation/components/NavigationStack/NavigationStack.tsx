@@ -1,7 +1,7 @@
 import React from "react";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { INavigationMeta } from "./types/INavigationMeta";
+import { INavigationMeta } from "../../types/INavigationMeta";
 import { ParamListBase } from "@react-navigation/native";
 
 export interface INavigationStackProps<T extends ParamListBase> {
