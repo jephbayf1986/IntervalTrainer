@@ -19,14 +19,19 @@ export const InputNumber: React.FC<InputBoxProps<number>> = (props) => {
     return value != null && value !== "" && !isNaN(Number(value.toString()));
   };
 
-  const onChangeText = (value: string) => {
+  const onChangeText = (value: string): void => {
 
+    if (value == '') {
+      setValueAsString('');
+      return;
+    }
+    
     if (isNumeric(value))
       setValueAsString(value);
     else 
-      setValueAsString(valueAsString);
+      setValueAsString(value);
 
-    onValueChange(Number(valueAsString));
+    onValueChange(Number(value));
   };
 
   useEffect(setInitialValueAsString, []);

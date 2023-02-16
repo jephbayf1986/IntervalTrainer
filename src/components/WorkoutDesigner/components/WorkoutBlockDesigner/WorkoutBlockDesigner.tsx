@@ -51,7 +51,7 @@ const WorkoutBlockDesigner: React.FC<IWorkoutBlockDesignerProps> = ({
           </RenderIf>
         </StyledBlockInnerContainer>
 
-        <RenderIf condition={(workoutBlock.repetitions ?? 0) > 0}>
+        <RenderIf condition={(workoutBlock.repetitions ?? 1) > 1}>
           <StyledBlockRepeaterContainer>
             <StyledBlockRepeater>
               x {workoutBlock.repetitions}

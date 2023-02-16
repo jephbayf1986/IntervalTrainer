@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import colors from "../../../../../../theme/colors";
 
 import ModalProps from "../../../../../../types/props-bases/ModalProps";
@@ -20,16 +20,10 @@ const WorkoutBlockSettingsModal: React.FC<WorkoutBlockSettingsModal> = ({
   workoutBlock,
 }) => {
 
-  const [name, setName] = useState<string>(workoutBlock?.name ?? "");
-  const [repetitions, setRepetitions] = useState<number>(
-    workoutBlock?.repetitions ?? 1
-  );
-  const [countdownTimeSeconds, setCountdownTimeSeconds] = useState<number>(
-    workoutBlock?.countdownTimeSeconds ?? 0
-  );
-  const [restTimeSeconds, setRestTimeSeconds] = useState<number>(
-    workoutBlock?.restTimeSeconds ?? 0
-  );
+  const [name, setName] = useState<string>('');
+  const [repetitions, setRepetitions] = useState<number>(1);
+  const [countdownTimeSeconds, setCountdownTimeSeconds] = useState<number>(0);
+  const [restTimeSeconds, setRestTimeSeconds] = useState<number>(0);
 
   const onModalConfirm = () => {
     onComplete({
@@ -40,6 +34,15 @@ const WorkoutBlockSettingsModal: React.FC<WorkoutBlockSettingsModal> = ({
       restTimeSeconds,
     });
   };
+
+  const initialiseModal = () => {
+    setName(workoutBlock.name ?? '');
+    setRepetitions(workoutBlock.repetitions ?? 1);
+    setCountdownTimeSeconds(workoutBlock.countdownTimeSeconds ?? 0);
+    setRestTimeSeconds(workoutBlock.restTimeSeconds ?? 0);
+  }
+
+  useEffect(initialiseModal, [ workoutBlock ]);
 
   return (
     <ModalWindow

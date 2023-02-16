@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
+import colors from "../../theme/colors";
 
 import Workout, { WorkoutBlock } from "../../types/Workout";
+import { defaultWorkoutBlock } from "../../utils/workout-defaults";
+import AddButton from "../Buttons/AddButton/AddButton";
 import FormContainer from "../FormElements/FormContainer/FormContainer";
 import InputBox from "../FormElements/InputBox/InputBox";
 import RenderIf from "../LayoutElements/RenderIf/RenderIf";
 import Seperator from "../LayoutElements/Seperator/Seperator";
 import WorkoutBlockDesigner from "./components/WorkoutBlockDesigner/WorkoutBlockDesigner";
+import { StyledAddButtonContainer } from "./styles/workout-designer.styled";
 
 export type IWorkoutDesignerProps = {
   workout: Workout;
@@ -35,6 +39,19 @@ const WorkoutDesigner: React.FC<IWorkoutDesignerProps> = ({ workout, onUpdateWor
     onUpdateWorkout({...workout, blocks: newBlockList}, true);
   }
 
+  const addNewBlock = () => {
+
+    const currentBlocks = workout.blocks;
+    const numberOfBlocks = currentBlocks.length;
+    const newBlock = defaultWorkoutBlock(numberOfBlocks + 1);
+
+    onUpdateWorkout({...workout, blocks: [...currentBlocks, newBlock]}, true);
+  }
+
+  const blockOrderAscending = (a: WorkoutBlock, b: WorkoutBlock): number => {
+    return a.order - b.order;
+  }
+
   useEffect(onStartSetEditWorkoutName, [])
 
   return (
@@ -48,7 +65,10 @@ const WorkoutDesigner: React.FC<IWorkoutDesignerProps> = ({ workout, onUpdateWor
         />
       </RenderIf>
       <Seperator />
-      {workout.blocks.map((block, i) => <WorkoutBlockDesigner key={i} workoutBlock={block} onUpdateBlock={onUpdateBlock} />)}
+      {workout.blocks.sort(blockOrderAscending).map((block) => <WorkoutBlockDesigner key={block.id.toString()} workoutBlock={block} onUpdateBlock={onUpdateBlock} />)}
+      <StyledAddButtonContainer>
+        <AddButton onPress={addNewBlock} color={colors.textLight}  />
+      </StyledAddButtonContainer>
     </FormContainer>
   );
 };
