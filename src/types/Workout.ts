@@ -8,6 +8,7 @@ type Workout = {
 
 export type WorkoutBlock = {
   id: Uuid;
+  order: number;
   countdownTimeSeconds?: number;
   name?: string
   sets: WorkoutSet[];
@@ -17,9 +18,10 @@ export type WorkoutBlock = {
 
 export type WorkoutSet = {
   id: Uuid;
+  order: number;
   name: string;
   color: string;
-  intensity: number;
+  intensity?: number;
   timeSeconds: number;
   repetitions: number;
 }
