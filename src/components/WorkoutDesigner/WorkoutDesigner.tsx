@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text } from "react-native";
+import { Text, ScrollView, View } from "react-native";
 import colors from "../../theme/colors";
 
 import Workout, { WorkoutBlock } from "../../types/Workout";
@@ -10,7 +10,7 @@ import InputBox from "../FormElements/InputBox/InputBox";
 import RenderIf from "../LayoutElements/RenderIf/RenderIf";
 import Seperator from "../LayoutElements/Seperator/Seperator";
 import WorkoutBlockDesigner from "./components/WorkoutBlockDesigner/WorkoutBlockDesigner";
-import { StyledAddButtonContainer } from "./styles/workout-designer.styled";
+import { StyledAddButtonContainer, StyledScrollView } from "./styles/workout-designer.styled";
 
 export type IWorkoutDesignerProps = {
   workout: Workout;
@@ -65,10 +65,12 @@ const WorkoutDesigner: React.FC<IWorkoutDesignerProps> = ({ workout, onUpdateWor
         />
       </RenderIf>
       <Seperator />
-      {workout.blocks.sort(blockOrderAscending).map((block) => <WorkoutBlockDesigner key={block.id.toString()} workoutBlock={block} onUpdateBlock={onUpdateBlock} />)}
-      <StyledAddButtonContainer>
-        <AddButton onPress={addNewBlock} color={colors.textLight}  />
-      </StyledAddButtonContainer>
+      <StyledScrollView>
+        {workout.blocks.sort(blockOrderAscending).map((block) => <WorkoutBlockDesigner key={block.id.toString()} workoutBlock={block} onUpdateBlock={onUpdateBlock} />)}
+        <StyledAddButtonContainer>
+          <AddButton onPress={addNewBlock} color={colors.textLight}  />
+        </StyledAddButtonContainer>
+      </StyledScrollView>
     </FormContainer>
   );
 };

@@ -28,7 +28,7 @@ export const StyledBlockInnerContainer = styled.View`
   flex: 1;
   margin: 5px;
   border: 1px solid ${colors.textLight};
-  min-height: 100px;
+  padding: 20px 10px;
 `;
 
 export const StyledBlockRepeaterContainer = styled.View`
@@ -37,4 +37,10 @@ export const StyledBlockRepeaterContainer = styled.View`
 
 export const StyledBlockRepeater = styled.Text`
   color: ${colors.lightGrey};
+`;
+
+export const StyledAddSetButtonContainer = styled.View`
+  background-color: ${colors.slightLightOpacity}
+  padding: 2px;
+  align-items: center;
 `;

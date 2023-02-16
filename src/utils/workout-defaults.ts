@@ -7,7 +7,7 @@ export const defaultWorkoutSet = (setNumber: number): WorkoutSet => {
     id: new Uuid(),
     order: setNumber,
     name: 'Run',
-    color: colors.neonPink,
+    colour: colors.neonPink,
     timeSeconds: 30,
     repetitions: 1
   };

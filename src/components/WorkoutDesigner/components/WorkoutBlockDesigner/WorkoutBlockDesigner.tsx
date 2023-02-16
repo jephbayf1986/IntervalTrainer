@@ -4,6 +4,7 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 
 import { WorkoutBlock } from "../../../../types/Workout";
 import {
+  StyledAddSetButtonContainer,
   StyledBlockContainer,
   StyledBlockInnerContainer,
   StyledBlockRepeater,
@@ -15,6 +16,8 @@ import RenderIf from "../../../LayoutElements/RenderIf/RenderIf";
 import { WorkoutSetDesigner } from "./components/WorkoutSetDesigner.tsx/WorkoutSetDesigner";
 import colors from "../../../../theme/colors";
 import WorkoutBlockSettingsModal from "./components/WorkoutBlockSettingsModal/WorkoutBlockSettingsModal";
+import AddButton from "../../../Buttons/AddButton/AddButton";
+import { defaultWorkoutSet } from "../../../../utils/workout-defaults";
 
 export type IWorkoutBlockDesignerProps = {
   workoutBlock: WorkoutBlock;
@@ -26,6 +29,15 @@ const WorkoutBlockDesigner: React.FC<IWorkoutBlockDesignerProps> = ({
   onUpdateBlock
 }) => {
   const [editModalIsVisible, setEditModalIsVisible] = useState<boolean>(false);
+
+  const addNewSet = () => {
+
+    const currentSets = workoutBlock.sets;
+    const numberOfSets = currentSets.length;
+    const newSet = defaultWorkoutSet(numberOfSets + 1);
+
+    onUpdateBlock({...workoutBlock, sets: [...currentSets, newSet]});
+  }
 
   return (
     <>
@@ -46,9 +58,12 @@ const WorkoutBlockDesigner: React.FC<IWorkoutBlockDesignerProps> = ({
           <StyledBlockTitle>{workoutBlock.name}</StyledBlockTitle>
           <RenderIf condition={workoutBlock.sets.length > 0}>
             {workoutBlock.sets.map((set, i) => (
-              <WorkoutSetDesigner />
+              <WorkoutSetDesigner set={set} />
             ))}
           </RenderIf>
+          <StyledAddSetButtonContainer>
+            <AddButton color={colors.lightGrey} onPress={addNewSet} />
+          </StyledAddSetButtonContainer>
         </StyledBlockInnerContainer>
 
         <RenderIf condition={(workoutBlock.repetitions ?? 1) > 1}>

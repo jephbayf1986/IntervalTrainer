@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { HasChildren } from '../../../types/props-bases/HasChildren';
 
 const StyledFormContainer = styled.View`
-  padding: 0 24px;
+  padding: 0 12px;
 `;
 
 const FormContainer: React.FC<HasChildren> = ({ children }) => {

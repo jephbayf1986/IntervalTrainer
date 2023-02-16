@@ -5,8 +5,8 @@ import colors from "../../../theme/colors";
 import { spaces } from "../../../theme/spaces";
 import { HasChildren } from "../../../types/props-bases/HasChildren";
 import ModalProps from "../../../types/props-bases/ModalProps";
-import CloseButton from "../CloseButton/CloseButton";
-import ConfirmButton from "../ConfirmButton/ConfirmButton";
+import CloseButton from "../../Buttons/CloseButton/CloseButton";
+import ConfirmButton from "../../Buttons/ConfirmButton/ConfirmButton";
 import RenderIf from "../RenderIf/RenderIf";
 import { Spacer } from "../Spacer/Spacer";
 import {

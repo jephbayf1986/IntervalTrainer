@@ -20,7 +20,7 @@ export type WorkoutSet = {
   id: Uuid;
   order: number;
   name: string;
-  color: string;
+  colour: string;
   intensity?: number;
   timeSeconds: number;
   repetitions: number;
