@@ -1,8 +1,7 @@
-import { NavigationProp, useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Button, Text } from "react-native";
-import { AppNavigationTreeParamList } from "../../../../navigation/app-navigation-tree";
 
+import useAppNavigation from "../../../../navigation/hooks/useAppNavigation";
 import colors from "../../../../theme/colors";
 import { StyledWorkoutListContainer } from "./styles/workout-list-container.styled";
 
@@ -10,7 +9,7 @@ export type IWorkoutListProps = {};
 
 const WorkoutList: React.FC<IWorkoutListProps> = ({}) => {
 
-  const navigation = useNavigation<NavigationProp<AppNavigationTreeParamList>>();
+  const navigation = useAppNavigation();
 
   return (
     <StyledWorkoutListContainer>

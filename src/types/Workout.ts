@@ -1,18 +1,22 @@
+import Uuid from './Uuid'
+
 type Workout = {
-  id: string;
+  id: Uuid;
   name: string;
   blocks: WorkoutBlock[];
 }
 
 export type WorkoutBlock = {
+  id: Uuid;
   countdownTimeSeconds?: number;
   name?: string
   sets: WorkoutSet[];
-  repititions?: number;
+  repetitions?: number;
   restTimeSeconds?: number;
 }
 
 export type WorkoutSet = {
+  id: Uuid;
   name: string;
   color: string;
   intensity: number;

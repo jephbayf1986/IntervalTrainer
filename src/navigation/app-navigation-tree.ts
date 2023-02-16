@@ -1,43 +1,38 @@
-import colors from './../theme/colors';
+import INavigationGroup from './types/INavigationGroup';
 import CreateWorkout from "../pages/CreateWorkout/CreateWorkout";
 import Overview from "../pages/Overview/Overview";
 import RunWorkout from "../pages/RunWorkout/RunWorkout";
 import UpdateWorkout from "../pages/UpdateWorkout/UpdateWorkout";
-import { INavigationMeta } from "./types/INavigationMeta";
-import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+import AppNavigationParams from './AppNavigationParams';
+import globalPageOptions, { sharedPageOptions as workoutPageOptions } from './app-navigation-options';
 
-const sharedPageOptions: NativeStackNavigationOptions = {
-  headerTransparent: true,
-  headerTitleAlign: 'center',
-  headerTitleStyle: { color: colors.textLight },
-  headerTintColor: colors.textLight,
-  animation: 'slide_from_right',
-  statusBarStyle: 'light',
-  statusBarTranslucent: true
-};
-
-export type AppNavigationTreeParamList = {
-  Home: undefined;
-  CreateWorkout: undefined;
-  UpdateWorkout: undefined;
-  RunWorkout: undefined;
-};
-
-const appNavigationTree: INavigationMeta<AppNavigationTreeParamList>[] = [
+const appNavigationTree: INavigationGroup<AppNavigationParams>[] = [
   {
-    name: 'Home',
-    component: Overview,
-    options: { ...sharedPageOptions, title: 'Your Overview', headerShown: false },
+    name: 'Home Overview',
+    options: globalPageOptions,
+    pages: [
+      {
+        name: 'Home',
+        component: Overview,
+        additionalOptions: { title: 'Your Overview', headerShown: false },
+      }
+    ]
   },
   {
-    name: 'CreateWorkout', 
-    component: CreateWorkout, 
-    options: { ...sharedPageOptions, title: 'Create a new workout' }
-  },
-  {
-    name: 'UpdateWorkout', component: UpdateWorkout, options: sharedPageOptions
-  },
-  { name: 'RunWorkout', component: RunWorkout, options: sharedPageOptions },
+    name: 'Workout Pages', 
+    options: workoutPageOptions,
+    pages: [
+      {
+        name: 'CreateWorkout', 
+        component: CreateWorkout, 
+        additionalOptions: { title: 'Create a new workout' }
+      },
+      {
+        name: 'UpdateWorkout', component: UpdateWorkout
+      },
+      { name: 'RunWorkout', component: RunWorkout }
+    ]
+  }
 ];
 
 export default appNavigationTree;

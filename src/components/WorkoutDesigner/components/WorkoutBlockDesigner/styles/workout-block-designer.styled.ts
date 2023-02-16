@@ -36,5 +36,5 @@ export const StyledBlockRepeaterContainer = styled.View`
 `;
 
 export const StyledBlockRepeater = styled.Text`
-  
+  color: ${colors.lightGrey};
 `;

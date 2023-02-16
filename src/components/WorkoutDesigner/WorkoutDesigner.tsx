@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 
-import Workout from "../../types/Workout";
+import Workout, { WorkoutBlock } from "../../types/Workout";
 import FormContainer from "../FormElements/FormContainer/FormContainer";
 import InputBox from "../FormElements/InputBox/InputBox";
 import RenderIf from "../LayoutElements/RenderIf/RenderIf";
@@ -28,6 +28,13 @@ const WorkoutDesigner: React.FC<IWorkoutDesignerProps> = ({ workout, onUpdateWor
 
   const nameReadOnlyDisplay = <Text>{workout.name}</Text>
 
+  const onUpdateBlock = (workoutBlock: WorkoutBlock) => {
+
+    const newBlockList = [...workout.blocks.filter(x => x.id != workoutBlock.id), workoutBlock]
+
+    onUpdateWorkout({...workout, blocks: newBlockList}, true);
+  }
+
   useEffect(onStartSetEditWorkoutName, [])
 
   return (
@@ -41,7 +48,7 @@ const WorkoutDesigner: React.FC<IWorkoutDesignerProps> = ({ workout, onUpdateWor
         />
       </RenderIf>
       <Seperator />
-      {workout.blocks.map((block, i) => <WorkoutBlockDesigner key={i} workoutBlock={block} />)}
+      {workout.blocks.map((block, i) => <WorkoutBlockDesigner key={i} workoutBlock={block} onUpdateBlock={onUpdateBlock} />)}
     </FormContainer>
   );
 };

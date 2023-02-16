@@ -1,13 +1,13 @@
 import styled from 'styled-components/native';
 
-export interface IStyledTextInput {
+export interface IStyledTextNumber {
   textColour: string;
 }
 
-const StyledTextInput = styled.TextInput<IStyledTextInput>`
+const StyledTextNumber = styled.TextInput<IStyledTextNumber>`
   flex: 1;
   color: ${props => props.textColour};
   font-size: 20px;
 `;
 
-export default StyledTextInput;
+export default StyledTextNumber;
