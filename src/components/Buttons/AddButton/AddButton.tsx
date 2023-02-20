@@ -5,7 +5,7 @@ import ButtonProps from "../../../types/props-bases/ButtonProps";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import styled from "styled-components/native";
 
-const AddButton: React.FC<ButtonProps> = ({ color, onPress, disabled }) => {
+const AddButton: React.FC<ButtonProps> = ({ colour: color, onPress, disabled }) => {
     
   const StyledTouchableOpacity = styled.TouchableOpacity`
     padding: 5px;

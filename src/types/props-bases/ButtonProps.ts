@@ -1,6 +1,6 @@
 type ButtonProps = {
-  color: string;
   onPress: () => void;
+  colour?: string;
   disabled?: boolean;
 };
 

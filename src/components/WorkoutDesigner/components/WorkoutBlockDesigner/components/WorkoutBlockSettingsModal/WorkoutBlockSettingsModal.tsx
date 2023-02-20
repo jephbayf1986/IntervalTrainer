@@ -3,14 +3,18 @@ import colors from "../../../../../../theme/colors";
 
 import ModalProps from "../../../../../../types/props-bases/ModalProps";
 import { WorkoutBlock } from "../../../../../../types/Workout";
+import DeleteButton from "../../../../../Buttons/DeleteButton/DeleteButton";
 import FormContainer from "../../../../../FormElements/FormContainer/FormContainer";
 import { InputNumber } from "../../../../../FormElements/InputNumber/InputNumber";
 import InputText from "../../../../../FormElements/InputText/InputText";
 import ModalWindow from "../../../../../LayoutElements/ModalWindow/ModalWindow";
+import Seperator from "../../../../../LayoutElements/Seperator/Seperator";
 
 export interface WorkoutBlockSettingsModal extends ModalProps {
   workoutBlock: WorkoutBlock;
   onComplete: (workoutBlock: WorkoutBlock) => void;
+  allowDelete: boolean;
+  onDelete: (workoutBlock: WorkoutBlock) => void;
 }
 
 const WorkoutBlockSettingsModal: React.FC<WorkoutBlockSettingsModal> = ({
@@ -18,6 +22,8 @@ const WorkoutBlockSettingsModal: React.FC<WorkoutBlockSettingsModal> = ({
   onModalHide,
   onComplete,
   workoutBlock,
+  allowDelete,
+  onDelete
 }) => {
 
   const [name, setName] = useState<string>('');
@@ -51,32 +57,33 @@ const WorkoutBlockSettingsModal: React.FC<WorkoutBlockSettingsModal> = ({
       title={`${workoutBlock.name ?? "Block"} configuration`}
       textColor={colors.darkBlue}
       onConfirm={onModalConfirm}
-      confirmButtonEnabled
     >
       <FormContainer>
         <InputText 
+          label={"Block Name"}
           value={name} 
           onValueChange={setName} 
-          label={"Block Name"}
           labelColour={colors.darkBlue} />
         <InputNumber
+          label={"Repeat Block"}
           value={repetitions}
           onValueChange={setRepetitions}
-          label={"Repeat Block"}
           labelColour={colors.darkBlue}
         />
         <InputNumber
+          label={"Pre-Block Wait"}
           value={countdownTimeSeconds}
           onValueChange={setCountdownTimeSeconds}
-          label={"Pre-Block Wait"}
           labelColour={colors.darkBlue}
         />
         <InputNumber
+          label={"Post-Block Rest"}
           value={restTimeSeconds}
           onValueChange={setRestTimeSeconds}
-          label={"Post-Block Rest"}
           labelColour={colors.darkBlue}
         />
+        <Seperator color={colors.grey}  />
+        <DeleteButton itemName="Block" onPress={() => onDelete(workoutBlock)} disabled={!allowDelete} />
       </FormContainer>
     </ModalWindow>
   );

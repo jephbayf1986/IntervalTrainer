@@ -10,7 +10,7 @@ export interface IArrowButtonProps extends ButtonProps {
   direction: "up" | "down" | "left" | "right";
 }
 
-const ArrowButton: React.FC<IArrowButtonProps> = ({ direction, color, onPress, disabled }) => {
+const ArrowButton: React.FC<IArrowButtonProps> = ({ direction, colour: color, onPress, disabled }) => {
 
   const StyledTouchableOpacity = styled.TouchableOpacity`
     padding: 5px;

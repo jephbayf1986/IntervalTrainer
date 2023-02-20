@@ -22,11 +22,15 @@ import { defaultWorkoutSet } from "../../../../utils/workout-defaults";
 export type IWorkoutBlockDesignerProps = {
   workoutBlock: WorkoutBlock;
   onUpdateBlock: (workoutBlock: WorkoutBlock) => void;
+  allowDelete: boolean;
+  onDelete: (workoutBlock: WorkoutBlock) => void;
 };
 
 const WorkoutBlockDesigner: React.FC<IWorkoutBlockDesignerProps> = ({
   workoutBlock,
-  onUpdateBlock
+  onUpdateBlock,
+  allowDelete,
+  onDelete
 }) => {
   const [editModalIsVisible, setEditModalIsVisible] = useState<boolean>(false);
 
@@ -46,6 +50,8 @@ const WorkoutBlockDesigner: React.FC<IWorkoutBlockDesignerProps> = ({
         onModalHide={() => setEditModalIsVisible(false)}
         workoutBlock={workoutBlock} 
         onComplete={onUpdateBlock}
+        allowDelete={allowDelete}
+        onDelete={onDelete}
       />
 
       <StyledBlockContainer>
@@ -62,7 +68,7 @@ const WorkoutBlockDesigner: React.FC<IWorkoutBlockDesignerProps> = ({
             ))}
           </RenderIf>
           <StyledAddSetButtonContainer>
-            <AddButton color={colors.lightGrey} onPress={addNewSet} />
+            <AddButton colour={colors.lightGrey} onPress={addNewSet} />
           </StyledAddSetButtonContainer>
         </StyledBlockInnerContainer>
 

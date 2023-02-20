@@ -55,12 +55,12 @@ const ModalWindow: React.FC<ModalWindowProps> = ({
     >
       <StyledModalWindow backgroundColor={backgroundColor}>
         <StyledModalHeaderContainer>
-          <CloseButton color={textColor} onPress={onModalHide} />
+          <CloseButton colour={textColor} onPress={onModalHide} />
           <RenderIf condition={title != null}>
             <StyledModalTitle color={textColor}>{title}</StyledModalTitle>
           </RenderIf>
           <RenderIf condition={onConfirm != null} elseDisplay={<Spacer space={spaces.l} />}>
-            <ConfirmButton color={textColor} onPress={confirmAndClose} />
+            <ConfirmButton colour={textColor} onPress={confirmAndClose} />
           </RenderIf>
         </StyledModalHeaderContainer>
         <StyledModalContentContainer>

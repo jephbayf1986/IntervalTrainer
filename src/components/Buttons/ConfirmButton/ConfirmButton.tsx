@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 import ButtonProps from "../../../types/props-bases/ButtonProps";
 
-const ConfirmButton: React.FC<ButtonProps> = ({ color, onPress }) => {
+const ConfirmButton: React.FC<ButtonProps> = ({ colour: color, onPress }) => {
   const StyledTouchableOpacity = styled.TouchableOpacity`
     padding: 5px;
   `;

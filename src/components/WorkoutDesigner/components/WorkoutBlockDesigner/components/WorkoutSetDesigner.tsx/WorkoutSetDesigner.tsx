@@ -32,7 +32,7 @@ export const WorkoutSetDesigner: React.FC<IWorkoutSetDesignerProps> = ({
       </StyledSetTime>
 
       <StyledArrowButtonContainer>
-        <ArrowButton direction='right' color={colors.grey} onPress={() => {}} />
+        <ArrowButton direction='right' colour={colors.grey} onPress={() => {}} />
       </StyledArrowButtonContainer>
 
     </StyledSetContainer>

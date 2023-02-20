@@ -9,7 +9,9 @@ const colors = {
     orange: '#FF8601',
     yellow: '#FDF700',
     neonGreen: '#00FF3B',
-    paleGreen: '#00FF77'
+    paleGreen: '#00FF77',
+    textWarning: '#C86464',
+    backgroundWarning: '#FFDCDC'
 }
 
 export default colors;

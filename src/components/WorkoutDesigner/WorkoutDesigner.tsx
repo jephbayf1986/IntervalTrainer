@@ -52,6 +52,17 @@ const WorkoutDesigner: React.FC<IWorkoutDesignerProps> = ({ workout, onUpdateWor
     return a.order - b.order;
   }
 
+  const hasMultipleBlocks = (): boolean => {
+    return workout.blocks.length > 1;
+  }
+
+  const deleteBlock = (block: WorkoutBlock) => {
+
+    const newBlockList = workout.blocks.filter(x => x.id != block.id);
+
+    onUpdateWorkout({...workout, blocks: newBlockList}, true);
+  }
+
   useEffect(onStartSetEditWorkoutName, [])
 
   return (
@@ -66,9 +77,17 @@ const WorkoutDesigner: React.FC<IWorkoutDesignerProps> = ({ workout, onUpdateWor
       </RenderIf>
       <Seperator />
       <StyledScrollView>
-        {workout.blocks.sort(blockOrderAscending).map((block) => <WorkoutBlockDesigner key={block.id.toString()} workoutBlock={block} onUpdateBlock={onUpdateBlock} />)}
+        {workout.blocks.sort(blockOrderAscending).map((block) => 
+          <WorkoutBlockDesigner 
+            key={block.id.toString()} 
+            workoutBlock={block} 
+            onUpdateBlock={onUpdateBlock}
+            allowDelete={hasMultipleBlocks()}
+            onDelete={deleteBlock}
+          />
+        )}
         <StyledAddButtonContainer>
-          <AddButton onPress={addNewBlock} color={colors.textLight}  />
+          <AddButton onPress={addNewBlock} colour={colors.textLight}  />
         </StyledAddButtonContainer>
       </StyledScrollView>
     </FormContainer>

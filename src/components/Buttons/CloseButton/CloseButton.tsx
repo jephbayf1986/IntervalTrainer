@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 import ButtonProps from "../../../types/props-bases/ButtonProps";
 
-const CloseButton: React.FC<ButtonProps> = ({ color, onPress, disabled }) => {
+const CloseButton: React.FC<ButtonProps> = ({ colour: color, onPress, disabled }) => {
 
   const StyledTouchableOpacity = styled.TouchableOpacity`
     padding: 5px;
