@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 
-import { WorkoutBlock } from "../../../../types/Workout";
+import { WorkoutBlock, WorkoutSet } from "../../../../types/Workout";
 import {
   StyledAddSetButtonContainer,
   StyledBlockContainer,
@@ -43,6 +43,28 @@ const WorkoutBlockDesigner: React.FC<IWorkoutBlockDesignerProps> = ({
     onUpdateBlock({...workoutBlock, sets: [...currentSets, newSet]});
   }
 
+  const onUpdateSet = (workoutSet: WorkoutSet) => {
+
+    const newSets = [ ...workoutBlock.sets.filter(x => x.id != workoutSet.id), workoutSet ]
+
+    onUpdateBlock({...workoutBlock, sets: newSets})
+  }
+
+  const onDeleteSet = (workoutSet: WorkoutSet) => {
+
+    const newSets = workoutBlock.sets.filter(x => x.id != workoutSet.id);
+
+    onUpdateBlock({...workoutBlock, sets: newSets})
+  }
+
+  const setOrderAscending = (a: WorkoutSet, b: WorkoutSet): number => {
+    return a.order - b.order;
+  }
+
+  const hasMultipleSets = (): boolean => {
+    return workoutBlock.sets.length > 1;
+  }
+
   return (
     <>
       <WorkoutBlockSettingsModal 
@@ -63,8 +85,14 @@ const WorkoutBlockDesigner: React.FC<IWorkoutBlockDesignerProps> = ({
         <StyledBlockInnerContainer>
           <StyledBlockTitle>{workoutBlock.name}</StyledBlockTitle>
           <RenderIf condition={workoutBlock.sets.length > 0}>
-            {workoutBlock.sets.map((set, i) => (
-              <WorkoutSetDesigner set={set} />
+            {workoutBlock.sets.sort(setOrderAscending).map((set) => (
+              <WorkoutSetDesigner 
+                key={set.id.toString()}
+                workoutSet={set}
+                onUpdateSet={onUpdateSet}
+                allowDelete={hasMultipleSets()}
+                onDelete={onDeleteSet}  
+              />
             ))}
           </RenderIf>
           <StyledAddSetButtonContainer>
