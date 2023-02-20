@@ -4,6 +4,7 @@ import { HasChildren } from '../../../types/props-bases/HasChildren';
 
 const StyledFormContainer = styled.View`
   padding: 0 12px;
+  flex: 1;
 `;
 
 const FormContainer: React.FC<HasChildren> = ({ children }) => {

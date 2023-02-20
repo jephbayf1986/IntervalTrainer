@@ -13,6 +13,7 @@ import {
   StyledModalContentContainer,
   StyledModalHeaderContainer,
   StyledModalTitle,
+  StyledModalWindow,
 } from "./styles/modal-window.styles";
 
 export interface ModalWindowProps extends ModalProps, HasChildren {
@@ -52,7 +53,7 @@ const ModalWindow: React.FC<ModalWindowProps> = ({
       swipeDirection={"down"}
       animationIn={"slideInUp"}
     >
-      <StyledModalContentContainer backgroundColor={backgroundColor}>
+      <StyledModalWindow backgroundColor={backgroundColor}>
         <StyledModalHeaderContainer>
           <CloseButton color={textColor} onPress={onModalHide} />
           <RenderIf condition={title != null}>
@@ -62,8 +63,10 @@ const ModalWindow: React.FC<ModalWindowProps> = ({
             <ConfirmButton color={textColor} onPress={confirmAndClose} />
           </RenderIf>
         </StyledModalHeaderContainer>
-        {children}
-      </StyledModalContentContainer>
+        <StyledModalContentContainer>
+          {children}
+        </StyledModalContentContainer>
+      </StyledModalWindow>
     </Modal>
   );
 };

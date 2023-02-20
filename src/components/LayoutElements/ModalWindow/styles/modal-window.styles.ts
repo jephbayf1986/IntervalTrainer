@@ -21,12 +21,16 @@ export const StyledModalTitle = styled.Text<IStyledModalTitleProps>`
   padding-top: 5px;
 `;
 
-export const StyledModalContentContainer = styled.View<IStyledModalContentContainerProps>`
+export const StyledModalWindow = styled.View<IStyledModalContentContainerProps>`
   background-color: ${props => props.backgroundColor};
-  width: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   padding: 12px;
 `;
+
+export const StyledModalContentContainer = styled.View`
+  display: flex;
+  flex-direction: row;
+`
