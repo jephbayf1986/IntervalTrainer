@@ -6,6 +6,7 @@ import ModalProps from "../../../../../../../../types/props-bases/ModalProps";
 import { WorkoutSet } from "../../../../../../../../types/Workout";
 import DeleteButton from "../../../../../../../Buttons/DeleteButton/DeleteButton";
 import FormContainer from "../../../../../../../FormElements/FormContainer/FormContainer";
+import { InputNumber } from "../../../../../../../FormElements/InputNumber/InputNumber";
 import InputText from "../../../../../../../FormElements/InputText/InputText";
 import ModalWindow from "../../../../../../../LayoutElements/ModalWindow/ModalWindow";
 import Seperator from "../../../../../../../LayoutElements/Seperator/Seperator";
@@ -26,16 +27,19 @@ const WorkoutSetSettingsModal: React.FC<IWorkoutSetSettingsModalProps> = ({
   onDelete,
 }) => {
   const [name, setName] = useState<string>("");
+  const [timeSeconds, setTimeSeconds] = useState<number>(30);
 
   const onModalConfirm = () => {
     onComplete({
       ...workoutSet,
       name,
+      timeSeconds
     });
   };
 
   const initialiseModal = () => {
     setName(workoutSet.name ?? '');
+    setTimeSeconds(workoutSet.timeSeconds);
   }
 
   useEffect(initialiseModal, [ workoutSet ]);
@@ -53,6 +57,12 @@ const WorkoutSetSettingsModal: React.FC<IWorkoutSetSettingsModalProps> = ({
           label={"Set Name"}
           value={name}
           onValueChange={setName}
+          labelColour={colors.darkBlue}
+        />
+        <InputNumber
+          label={"Set Name"}
+          value={timeSeconds}
+          onValueChange={setTimeSeconds}
           labelColour={colors.darkBlue}
         />
         <Seperator color={colors.grey} />
