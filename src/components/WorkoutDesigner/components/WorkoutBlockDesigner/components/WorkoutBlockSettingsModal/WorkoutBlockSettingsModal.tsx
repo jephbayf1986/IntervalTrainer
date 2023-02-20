@@ -4,8 +4,8 @@ import colors from "../../../../../../theme/colors";
 import ModalProps from "../../../../../../types/props-bases/ModalProps";
 import { WorkoutBlock } from "../../../../../../types/Workout";
 import FormContainer from "../../../../../FormElements/FormContainer/FormContainer";
-import InputBox from "../../../../../FormElements/InputBox/InputBox";
 import { InputNumber } from "../../../../../FormElements/InputNumber/InputNumber";
+import InputText from "../../../../../FormElements/InputText/InputText";
 import ModalWindow from "../../../../../LayoutElements/ModalWindow/ModalWindow";
 
 export interface WorkoutBlockSettingsModal extends ModalProps {
@@ -54,7 +54,7 @@ const WorkoutBlockSettingsModal: React.FC<WorkoutBlockSettingsModal> = ({
       confirmButtonEnabled
     >
       <FormContainer>
-        <InputBox 
+        <InputText 
           value={name} 
           onValueChange={setName} 
           label={"Block Name"}

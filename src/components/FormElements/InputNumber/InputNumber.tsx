@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import colors from "../../../theme/colors";
-import InputBoxProps from "../../../types/props-bases/InputBoxProps";
+import InputGenericProps from "../../../types/props-bases/InputGenericProps";
 import InputContainer from "../InputContainer/InputContainer";
 import StyledTextNumber from "./styles/input-number.styled";
 
-export const InputNumber: React.FC<InputBoxProps<number>> = (props) => {
+export const InputNumber: React.FC<InputGenericProps<number>> = (props) => {
     
   const { value, onValueChange, textColour, placeholderText } = props;
 

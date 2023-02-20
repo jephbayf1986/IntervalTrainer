@@ -1,6 +1,6 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-type InputBoxProps<T> = {
+type InputGenericProps<T> = {
   value: T;
   onValueChange: (newValue: T) => void;
   label?: string;
@@ -13,4 +13,4 @@ type InputBoxProps<T> = {
   isValid?: boolean;
 };
 
-export default InputBoxProps;
+export default InputGenericProps;

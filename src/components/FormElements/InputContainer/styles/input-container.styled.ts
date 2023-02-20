@@ -1,11 +1,11 @@
 import styled from "styled-components/native";
 
-export interface IStyledTextInputContainerProps {
+export interface IStyledInputAreaProps {
     backgroundColour?: string;
     invalid?: boolean;
   }
   
-  export interface IStyledInputBoxLabelProps {
+  export interface IStyledInputLabelProps {
     textColour: string;
   }
   
@@ -13,17 +13,17 @@ export interface IStyledTextInputContainerProps {
     textColour: string;
   }
   
-  export const StyledInputBoxContainer = styled.View`
+  export const StyledInputContainer = styled.View`
     margin: 10px 0;
   `;
   
-  export const StyledInputBoxLabel = styled.Text<IStyledInputBoxLabelProps>`
+  export const StyledInputLabel = styled.Text<IStyledInputLabelProps>`
     color: ${props => props.textColour}
     padding: 8px;
     font-size: 18px;
   `;
   
-  export const StyledTextInputContainer = styled.View<IStyledTextInputContainerProps>`
+  export const StyledInputArea = styled.View<IStyledInputAreaProps>`
     background-color: ${props => props.backgroundColour ?? 'white'};
     display: flex;
     flex-direction: row;

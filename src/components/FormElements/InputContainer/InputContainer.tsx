@@ -3,17 +3,17 @@ import { FontAwesomeIcon, FontAwesomeIconStyle } from "@fortawesome/react-native
 
 import colors from "../../../theme/colors";
 import { HasChildren } from "../../../types/props-bases/HasChildren";
-import InputBoxProps from "../../../types/props-bases/InputBoxProps";
+import InputGenericProps from "../../../types/props-bases/InputGenericProps";
 import RenderIf from "../../LayoutElements/RenderIf/RenderIf";
 import { Spacer } from "../../LayoutElements/Spacer/Spacer";
 import { spaces } from "../../../theme/spaces";
 import {
-  StyledInputBoxContainer as StyledInputContainer,
-  StyledInputBoxLabel as StyledInputLabel,
-  StyledTextInputContainer as StyledInputArea,
+  StyledInputContainer as StyledInputContainer,
+  StyledInputLabel as StyledInputLabel,
+  StyledInputArea as StyledInputArea,
 } from "./styles/input-container.styled";
 
-export interface InputContainerProps extends InputBoxProps<any>, HasChildren {}
+export interface InputContainerProps extends InputGenericProps<any>, HasChildren {}
 
 const InputContainer: React.FC<InputContainerProps> = ({
   label,

@@ -6,7 +6,7 @@ import Workout, { WorkoutBlock } from "../../types/Workout";
 import { defaultWorkoutBlock } from "../../utils/workout-defaults";
 import AddButton from "../Buttons/AddButton/AddButton";
 import FormContainer from "../FormElements/FormContainer/FormContainer";
-import InputBox from "../FormElements/InputBox/InputBox";
+import InputText from "../FormElements/InputText/InputText";
 import RenderIf from "../LayoutElements/RenderIf/RenderIf";
 import Seperator from "../LayoutElements/Seperator/Seperator";
 import WorkoutBlockDesigner from "./components/WorkoutBlockDesigner/WorkoutBlockDesigner";
@@ -57,7 +57,7 @@ const WorkoutDesigner: React.FC<IWorkoutDesignerProps> = ({ workout, onUpdateWor
   return (
     <FormContainer>
       <RenderIf condition={editWorkoutName} elseDisplay={nameReadOnlyDisplay}>
-        <InputBox
+        <InputText
             label="Workout Name"
             placeholderText="Enter Workout Name"
             value={workout.name}

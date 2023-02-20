@@ -1,11 +1,11 @@
 import React from "react";
 
 import colors from "../../../theme/colors";
-import InputBoxProps from "../../../types/props-bases/InputBoxProps";
+import InputGenericProps from "../../../types/props-bases/InputGenericProps";
 import InputContainer from "../InputContainer/InputContainer";
 import StyledTextInput from "./styles/input-box.styled";
 
-const InputBox: React.FC<InputBoxProps<string>> = (props) => {
+const InputText: React.FC<InputGenericProps<string>> = (props) => {
 
   const { value, onValueChange, textColour, placeholderText } = props;
 
@@ -21,4 +21,4 @@ const InputBox: React.FC<InputBoxProps<string>> = (props) => {
   );
 };
 
-export default InputBox;
+export default InputText;
